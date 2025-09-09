@@ -110,10 +110,28 @@ vfor = "vexy_formi.cli:main"
 # Hatchling is a modern build backend for Python packaging
 # hatch-vcs integrates with version control systems for versioning
 requires = [
-    'hatchling>=1.27.0', # Keep hatchling as is, update if newer hatchling version is required
-    'hatch-vcs>=0.4.0', # Keep hatch-vcs as is, update if newer hatch-vcs version is required
+    'hatchling>=1.27.0',
+    'hatch-vcs>=0.4.0',
 ]
-build-backend = 'hatchling.build' # Specifies Hatchling as the build backend
+build-backend = 'hatchling.build'
+
+#------------------------------------------------------------------------------
+# UV TOOL CONFIGURATION
+# Modern Python package installer and resolver configuration
+#------------------------------------------------------------------------------
+[tool.uv]
+dev-dependencies = [
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.7", 
+    "mypy>=1.15.0",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "pytest-xdist>=3.6.1",
+    "pytest-benchmark[histogram]>=5.1.0",
+    "coverage[toml]>=7.6.12",
+]
+# Use hatch for project management, uv for fast installs
+managed = false  # Let hatch manage environments
 
 
 #------------------------------------------------------------------------------
@@ -135,14 +153,14 @@ packages = ["src/vexy_formi"]
 reproducible = true
 
 
-# Version control system hook configuration
-# Automatically updates the version file from git tags
-[tool.hatch.build.hooks.vcs]
-version-file = "src/vexy_formi/__version__.py"
-
-# Version source configuration
+# Version source configuration - hatch-vcs for git-tag-based semver
 [tool.hatch.version]
-source = 'vcs' # Get version from git tags or other VCS info
+source = "vcs"
+
+# VCS version configuration
+[tool.hatch.version.raw-options]
+# Match tags like v1.0.0, v1.2.3  
+tag_regex = "^v(?P<version>[^+]+)(?:\\+.*)?$"
 
 # Metadata handling configuration
 [tool.hatch.metadata]
@@ -154,8 +172,8 @@ allow-direct-references = true # Allow direct references in metadata (useful for
 
 [tool.hatch.envs.default]
 features = ['dev', 'test', 'all']
-dependencies = [
-]
+dependencies = []
+# Note: uv integration with hatch is experimental, using pip for now
 
 # Commands available in the default environment
 [tool.hatch.envs.default.scripts]
@@ -184,7 +202,8 @@ python = ["3.10", "3.11", "3.12"]
 # Dedicated environment for linting and code quality checks
 [tool.hatch.envs.lint]
 detached = true # Create a separate, isolated environment
-features = ['dev'] # Use dev extras  dependencies 
+features = ['dev'] # Use dev extras dependencies
+# installer = "uv"  # Use uv for faster package installation (experimental) 
 
 # Linting environment commands
 [tool.hatch.envs.lint.scripts]
@@ -201,6 +220,7 @@ all = ["style", "typing", "fix"]
 # Dedicated environment for testing
 [tool.hatch.envs.test]
 features = ['test'] # Use test extras as dependencies
+# installer = "uv"  # Use uv for faster package installation (experimental)
 
 # Testing environment commands
 [tool.hatch.envs.test.scripts]
@@ -216,6 +236,7 @@ bench-save = "python -m pytest -v -p no:briefcase tests/test_benchmark.py --benc
 # Documentation environment
 [tool.hatch.envs.docs]
 features = ['docs']
+# installer = "uv"  # Use uv for faster package installation (experimental)
 
 # Documentation environment commands
 [tool.hatch.envs.docs.scripts]
@@ -224,6 +245,7 @@ build = "sphinx-build -b html docs/source docs/build"
 # GitHub Actions workflow configuration
 [tool.hatch.envs.ci]
 features = ['test']
+# installer = "uv"  # Use uv for faster package installation (experimental)
 
 
 [tool.hatch.envs.ci.scripts]
@@ -353,7 +375,12 @@ compare = [
 # Ruff linter and formatter configuration
 [tool.ruff]
 target-version = "py310"
-line-length = 120
+line-length = 100  # Modern standard, better for code readability
+fix = true  # Auto-fix issues where possible
+show-fixes = true  # Show what was fixed
+cache-dir = ".ruff_cache"  # Custom cache directory
+# Configure exclude to ignore specific directories
+exclude = [".git", ".venv", "venv", "dist", "build", ".ruff_cache"]
 
 # Linting rules configuration
 [tool.ruff.lint]
@@ -413,16 +440,26 @@ ignore = [
     'S106', # Possible hardcoded password - often false positives
     'S107', # Possible hardcoded password - often false positives
     'S110', # try-except-pass - sometimes valid for suppressing exceptions
-    'SIM102'
+    'SIM102',
     # Nested if statements - sometimes more readable than combined conditions
+    'D', # pydocstyle - too verbose for utility code
+    'ANN', # flake8-annotations - type hints handled by mypy
 ]
 # Rules that should not be automatically fixed
 unfixable = [
     'F401', # Don't automatically remove unused imports - may be needed later
 
 ]
-# Configure extend-exclude to ignore specific directories
-extend-exclude = [".git", ".venv", "venv", "dist", "build"]
+# extend-exclude moved to main [tool.ruff] section above
+
+# Ruff formatter configuration
+[tool.ruff.format]
+quote-style = "double"  # Use double quotes
+indent-style = "space"   # Use spaces for indentation
+skip-magic-trailing-comma = false  # Respect trailing commas
+line-ending = "lf"       # Use LF line endings (unix-style)
+docstring-code-format = true  # Format code in docstrings
+docstring-code-line-length = 80  # Shorter line length for docstring code
 
 # isort configuration within Ruff
 [tool.ruff.lint.isort]
