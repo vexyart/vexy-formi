@@ -1,0 +1,80 @@
+[22:12:10] $ vfor fmt testdata/
+╭─────────────────────────────────────────────────────────────────────────── Formatting Code ───────────────────────────────────────────────────────────────────────────╮
+│ ✨ VFor Formatter                                                                                                                                                     │
+│ Path: /Users/adam/Developer/vcs/github.vexyart/vexy-formi/testdata                                                                                                    │
+│ Mode: Recursive                                                                                                                                                       │
+│ Backup: Enabled                                                                                                                                                       │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────── ✗ Formatting Complete ────────────────────────────────────────────────────────────────────────╮
+│ Files processed: 1                                                                                                                                                    │
+│ Successful: 0                                                                                                                                                         │
+│ Failed: 1                                                                                                                                                             │
+│ Success rate: 0.0%                                                                                                                                                    │
+│ Total time: 0.03s                                                                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+⚠ 1 files had errors. Use --verbose to see details.
+~/Developer/vcs/github.vexyart/vexy-formi
+[22:12:51] $ vfor fmt testdata/ --verbose
+╭─────────────────────────────────────────────────────────────────────────── Formatting Code ───────────────────────────────────────────────────────────────────────────╮
+│ ✨ VFor Formatter                                                                                                                                                     │
+│ Path: /Users/adam/Developer/vcs/github.vexyart/vexy-formi/testdata                                                                                                    │
+│ Mode: Recursive                                                                                                                                                       │
+│ Backup: Enabled                                                                                                                                                       │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────── ✗ Formatting Complete ────────────────────────────────────────────────────────────────────────╮
+│ Files processed: 1                                                                                                                                                    │
+│ Successful: 0                                                                                                                                                         │
+│ Failed: 1                                                                                                                                                             │
+│ Success rate: 0.0%                                                                                                                                                    │
+│ Total time: 0.02s                                                                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Errors (1):
+  ✗ testdata/writingrules.json: /Users/adam/Developer/vcs/github.vexyart/vexy-formi/biome.json:3:5 deserialize
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Found an unknown key `include`.
+
+    1 │ {
+    2 │   "files": {
+  > 3 │     "include": [
+      │     ^^^^^^^^^
+    4 │       "**/*.{js,jsx,ts,tsx,json,jsonc}"
+    5 │     ],
+
+  i Known keys:
+
+  - maxSize
+  - ignoreUnknown
+  - includes
+  - experimentalScannerIgnores
+
+
+/Users/adam/Developer/vcs/github.vexyart/vexy-formi/biome.json:6:5 deserialize ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Found an unknown key `ignore`.
+
+    4 │       "**/*.{js,jsx,ts,tsx,json,jsonc}"
+    5 │     ],
+  > 6 │     "ignore": [
+      │     ^^^^^^^^
+    7 │       "node_modules",
+    8 │       "dist",
+
+  i Known keys:
+
+  - maxSize
+  - ignoreUnknown
+  - includes
+  - experimentalScannerIgnores
+
+
+configuration ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Biome exited because the configuration resulted in errors. Please fix them.
+
+
+
+~/Developer/vcs/github.vexyart/vexy-formi
+[22:12:54] $

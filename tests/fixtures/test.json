@@ -1,0 +1,29 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "Test JSON file for formatting and minification",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "webpack": "^5.74.0",
+    "babel-core": "^6.26.3"
+  },
+  "keywords": [
+    "test",
+    "example",
+    "formatting"
+  ],
+  "author": "Test Author",
+  "license": "MIT"
+}

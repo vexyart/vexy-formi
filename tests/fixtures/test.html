@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HTML File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Test HTML content for minification -->
+    <div class="container">
+        <h1>Test HTML Document</h1>
+        <p>This is a test HTML file for testing minification capabilities.</p>
+        
+        <h2>Features</h2>
+        <ul>
+            <li>HTML structure</li>
+            <li>CSS styles</li>
+            <li>JavaScript functionality</li>
+            <li>Comments for removal</li>
+        </ul>
+        
+        <div id="content">
+            <p>Dynamic content will be loaded here.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Test JavaScript in HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentDiv = document.getElementById('content');
+            if (contentDiv) {
+                contentDiv.innerHTML = '<p>Content loaded successfully!</p>';
+            }
+        });
+    </script>
+</body>
+</html>

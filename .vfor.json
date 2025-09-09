@@ -1,0 +1,15 @@
+{
+    "preferred_js_tool": "esbuild",
+    "preferred_css_tool": "biome",
+    "preferred_python_tool": "ruff",
+    "preferred_html_tool": "html-minifier-terser",
+    "max_workers": 4,
+    "create_backup": true,
+    "exclude_patterns": [
+        "*.min.*",
+        "node_modules/**",
+        "dist/**",
+        "build/**",
+        ".git/**"
+    ]
+}

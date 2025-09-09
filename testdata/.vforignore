@@ -1,0 +1,38 @@
+# VFor ignore file - gitignore-style patterns for code formatting
+# See: https://git-scm.com/docs/gitignore for syntax
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+vendor/
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
+*.min.html
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# VFor backup files (already excluded by default)
+*.vfor_backup
+*.vfor_temp
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Examples of advanced patterns:
+# !important.txt     # Negate: don't ignore this file
+# temp/**           # Ignore everything in temp directory
+# *.test.*          # Ignore test files
+# src/**/generated/ # Ignore generated directories

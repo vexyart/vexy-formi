@@ -11,10 +11,11 @@
 #------------------------------------------------------------------------------
 [project]
 name = 'vexy-formi' # Package name on PyPI
-description = '' # Short description
+description = 'Fast code formatting and minification tool using the best available tools' # Short description
 readme = 'README.md' # Path to README file
 requires-python = '>=3.10' # Minimum Python version
 keywords = [
+    'formatter', 'minifier', 'code-formatter', 'esbuild', 'swc', 'biome', 'ruff'
 ] # Keywords for PyPI search
 dynamic = ["version"] # Fields set dynamically at build time
 
@@ -30,9 +31,16 @@ classifiers = [
     'Operating System :: OS Independent',
     'License :: OSI Approved :: MIT License',
     'Intended Audience :: Developers',
+    'Topic :: Software Development :: Quality Assurance',
+    'Topic :: Software Development :: Code Generators',
+    'Topic :: Utilities',
 ]
 
 dependencies = [
+    'fire>=0.7.0',
+    'rich>=13.0.0',
+    'pathspec>=0.12.0', 
+    'chardet>=5.0.0'
 ]
 
 # Author information
@@ -92,7 +100,7 @@ all = [
 # Entry points for command-line executables installed with the package.
 #------------------------------------------------------------------------------
 [project.scripts]
-# CLINAME = "vexy_formi.__main__:main"
+vfor = "vexy_formi.cli:main"
 
 #------------------------------------------------------------------------------
 # BUILD SYSTEM CONFIGURATION
