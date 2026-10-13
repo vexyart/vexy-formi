@@ -1,5 +1,7 @@
 # VexyFormi
 
+**Documentation:** https://vexy.dev/vexy-formi/
+
 Fast code formatting and minification using the best available tools.
 
 ## Features

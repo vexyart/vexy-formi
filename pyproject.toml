@@ -45,6 +45,10 @@ dependencies = [
 
 # Author information
 [[project.authors]]
+name = 'Adam Twardoch'
+email = 'adam+github@twardoch.com'
+
+[[project.authors]]
 name = 'Fontlab Ltd'
 email = 'opensource@vexy.art'
 
@@ -54,9 +58,10 @@ text = 'MIT'
 
 # Project URLs
 [project.urls]
-Documentation = 'https://github.com/vexyart/vexy-formi#readme'
+Documentation = 'https://vexy.dev/vexy-formi/'
+Homepage = 'https://vexy.dev/vexy-formi/'
+Repository = 'https://github.com/vexyart/vexy-formi'
 Issues = 'https://github.com/vexyart/vexy-formi/issues'
-Source = 'https://github.com/vexyart/vexy-formi'
 
 #------------------------------------------------------------------------------
 # OPTIONAL DEPENDENCIES
@@ -140,17 +145,26 @@ managed = false  # Let hatch manage environments
 # how to handle versioning.
 #------------------------------------------------------------------------------
 [tool.hatch.build]
-# Include package data files
-include = [
-    "src/vexy_formi/py.typed", # For better type checking support
-    "src/vexy_formi/data/**/*", # Include data files if any
-
-]
 exclude = ["**/__pycache__", "**/.pytest_cache", "**/.mypy_cache"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/vexy_formi"]
 reproducible = true
+
+# Source distribution: ship the package, tests and project metadata only
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/vexy_formi",
+    "tests",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+# Write the VCS-derived version into the package at build time
+[tool.hatch.build.hooks.vcs]
+version-file = "src/vexy_formi/__version__.py"
 
 
 # Version source configuration - hatch-vcs for git-tag-based semver
