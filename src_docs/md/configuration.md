@@ -1,3 +1,8 @@
+---
+this_file: src_docs/md/configuration.md
+tags: [Configuration]
+---
+
 # Configuration
 
 `vfor` reads settings from three places, in this order. A later source overrides an earlier one.

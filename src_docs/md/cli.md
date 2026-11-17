@@ -1,3 +1,8 @@
+---
+this_file: src_docs/md/cli.md
+tags: [Command line]
+---
+
 # CLI reference
 
 `vfor` is built with [Python Fire](https://github.com/google/python-fire) from the `VFor` class in `src/vexy_formi/cli.py`. Run `vfor` with no command to list the commands.

@@ -1,3 +1,8 @@
+---
+this_file: src_docs/md/installation.md
+tags: [Installation]
+---
+
 # Installation
 
 `vexy-formi` has two parts: the Python package that provides `vfor`, and the external formatters and minifiers it runs. You need both.

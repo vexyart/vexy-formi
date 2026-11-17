@@ -318,3 +318,9 @@ Processed 1 files (0.27s)                # always shown
 - **Functionality**: Core purpose of tool (minification) now works correctly for JSON files
 
 **Critical Impact**: This fixed the fundamental broken functionality where the tool's primary purpose (minification) was not working for a major file type (JSON).
+
+## 2026-10-18: documentation plugins
+
+- Use MaterialX search, inherited metadata and a topic index; keep ordered navigation in awesome-nav.
+- The documentation wrapper installs the plugins required by this site.
+- Strict documentation build and rendered output checks passed.
