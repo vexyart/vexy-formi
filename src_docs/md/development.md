@@ -32,7 +32,7 @@ uv pip install -e ".[dev,test]"
 uv run python -m pytest -q -o addopts="" -n auto
 ```
 
-The tests copy fixtures into temporary directories before processing them. Integration tests use the external tools installed on the machine.
+The tests copy the fixtures into temporary directories before processing them, so the repository is not modified. Some tests depend on which external tools are installed. On a machine with `biome`, `dprint`, `ruff`, `yq`, `black` and `jq` but no `esbuild`, two tests failed (`test_format_support`, `test_vfor_tools`) and 72 passed.
 
 ## Lint and format
 
