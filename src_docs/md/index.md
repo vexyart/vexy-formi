@@ -1,4 +1,4 @@
-# vexy-formi
+# vexy-formi { data-toc-label="Overview" }
 
 `vexy-formi` formats and minifies source files by handing each file to an external tool that is already installed on your machine: `ruff` or `black` for Python, `biome`, `prettier` or `dprint` for JavaScript and CSS, `esbuild` or `swc` to minify JavaScript, and so on. It finds the files, picks a tool per file type, runs the tools in parallel and reports what happened.
 

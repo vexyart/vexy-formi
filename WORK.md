@@ -324,3 +324,9 @@ Processed 1 files (0.27s)                # always shown
 - Use MaterialX search, inherited metadata and a topic index; keep ordered navigation in awesome-nav.
 - The documentation wrapper installs the plugins required by this site.
 - Strict documentation build and rendered output checks passed.
+
+## 2026-11-24 documentation theme
+
+- Adopted fly-january 0.1.1 with `chrome: none` and rebuilt the tracked `docs/` site using `./build.sh docs`. The strict build completed without warnings.
+- Verified Fly assets, the neutral header and footer, the search index and topic listings. The home page keeps its package heading and permalink, with “Overview” in the sidebar.
+- The baseline test run had 72 passes and two failures. Updated the format-support test to specify its available tools and the CLI test to check the current tool table. All 74 tests passed.

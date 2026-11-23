@@ -32,7 +32,7 @@ uv pip install -e ".[dev,test]"
 uv run python -m pytest -q -o addopts="" -n auto
 ```
 
-The tests copy the fixtures into temporary directories before processing them, so the repository is not modified. Some tests depend on which external tools are installed. On a machine with `biome`, `dprint`, `ruff`, `yq`, `black` and `jq` but no `esbuild`, two tests failed (`test_format_support`, `test_vfor_tools`) and 72 passed.
+The tests copy fixtures into temporary directories before processing them. Integration tests use the external tools installed on the machine.
 
 ## Lint and format
 
@@ -59,7 +59,7 @@ The source distribution contains the package, `tests/`, `README.md`, `CHANGELOG.
 
 ## Documentation
 
-Sources are in `src_docs/md/`, the configuration in `src_docs/mkdocs.yml`. The site is built with ProperDocs and the MaterialX theme.
+Sources are in `src_docs/md/`, the configuration in `src_docs/mkdocs.yml`. The build script installs ProperDocs and fly-january 0.1.1 with `uvx`. The site uses unbranded chrome.
 
 ```bash
 src_docs/build.sh          # strict build into docs/

@@ -2,6 +2,8 @@
 
 **Documentation:** https://vexy.dev/vexy-formi/
 
+Run `./build.sh docs` to rebuild `docs/` with strict checks. The build uses ProperDocs and fly-january 0.1.1 with unbranded chrome.
+
 Fast code formatting and minification using the best available tools.
 
 ## Features

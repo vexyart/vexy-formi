@@ -75,7 +75,10 @@ class TestBasicFunctionality:
                 print(f"✗ {test_file.name} failed validation: {error_msg}")
     
     def test_format_support(self):
-        """Test that we can determine format support correctly."""
+        """Check format support for a known set of installed tools."""
+        from unittest.mock import patch
+
+        installed = {"esbuild", "biome", "ruff", "jq", "html-minifier-terser"}
         test_cases = [
             ("test.js", True, True),    # Should support both minify and format
             ("test.css", True, True),   # Should support both
@@ -85,15 +88,14 @@ class TestBasicFunctionality:
             ("test.unknown", False, False),  # Should support neither
         ]
         
-        for filename, should_minify, should_format in test_cases:
-            test_path = Path(filename)
-            can_minify = self.tool_manager.supports_minify(test_path)
-            can_format = self.tool_manager.supports_format(test_path)
-            
-            assert can_minify == should_minify, f"{filename}: minify support mismatch"
-            assert can_format == should_format, f"{filename}: format support mismatch"
-            
-            print(f"✓ {filename}: minify={can_minify}, format={can_format}")
+        with patch.object(self.tool_manager, "is_available", side_effect=installed.__contains__):
+            for filename, should_minify, should_format in test_cases:
+                test_path = Path(filename)
+                assert self.tool_manager.supports_minify(test_path) == should_minify, filename
+                assert self.tool_manager.supports_format(test_path) == should_format, filename
+
+            installed.remove("esbuild")
+            assert not self.tool_manager.supports_minify(Path("test.js"))
     
     def test_tool_fallback(self):
         """Test tool fallback logic when preferred tools are missing."""
