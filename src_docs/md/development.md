@@ -70,13 +70,8 @@ The `Docs` workflow rebuilds `docs/` on each push to `main` that touches `src_do
 
 ## Release
 
-1. Export a PyPI token for `uv publish`, for example `UV_PUBLISH_TOKEN`.
-2. Run:
+The PyPI project needs a GitHub trusted publisher for owner `vexyart`, repository `vexy-formi`, workflow `release.yml`, and environment `pypi`. [PyPI setup instructions](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)
 
-    ```bash
-    ./publish.sh
-    ```
+With the release changes on the remote default branch and the GitHub CLI authenticated, run `./publish.sh` for the next patch release or pass an explicit tag, such as `./publish.sh v1.2.3`.
 
-    `gitnextver` commits pending changes, tags the next `vX.Y.Z` and pushes. The script then builds from that tag and uploads with `uv publish`.
-
-The pushed tag also triggers the `Release` workflow, which builds the package, uploads it to PyPI with `skip-existing` (so the upload from `publish.sh` does not make it fail) and creates a GitHub release.
+The script dispatches the Release workflow to create or reuse the tag. A pushed `vX.Y.Z` tag also starts the workflow. GitHub Actions builds the tagged source, creates or updates the GitHub release, and uploads the distributions to PyPI through Trusted Publishing.

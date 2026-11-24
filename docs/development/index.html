@@ -953,16 +953,9 @@
 </code></pre></div>
 <p>The <code>Docs</code> workflow rebuilds <code>docs/</code> on each push to <code>main</code> that touches <code>src_docs/</code>.</p>
 <h2 id="release">Release<a aria-label="Permanent link" class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Export a PyPI token for <code>uv publish</code>, for example <code>UV_PUBLISH_TOKEN</code>.</li>
-<li>
-<p>Run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./publish.sh
-</code></pre></div>
-<p><code>gitnextver</code> commits pending changes, tags the next <code>vX.Y.Z</code> and pushes. The script then builds from that tag and uploads with <code>uv publish</code>.</p>
-</li>
-</ol>
-<p>The pushed tag also triggers the <code>Release</code> workflow, which builds the package, uploads it to PyPI with <code>skip-existing</code> (so the upload from <code>publish.sh</code> does not make it fail) and creates a GitHub release.</p>
+<p>The PyPI project needs a GitHub trusted publisher for owner <code>vexyart</code>, repository <code>vexy-formi</code>, workflow <code>release.yml</code>, and environment <code>pypi</code>. <a href="https://docs.pypi.org/trusted-publishers/adding-a-publisher/">PyPI setup instructions</a></p>
+<p>With the release changes on the remote default branch and the GitHub CLI authenticated, run <code>./publish.sh</code> for the next patch release or pass an explicit tag, such as <code>./publish.sh v1.2.3</code>.</p>
+<p>The script dispatches the Release workflow to create or reuse the tag. A pushed <code>vX.Y.Z</code> tag also starts the workflow. GitHub Actions builds the tagged source, creates or updates the GitHub release, and uploads the distributions to PyPI through Trusted Publishing.</p>
 
 
 

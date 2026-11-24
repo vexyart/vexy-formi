@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 - Site now uses the fly-january 0.2.1 theme (chrome: none)
-- Fixed two stale test expectations for formatter availability and the `vfor tools` table.
+- Documented the existing PyPI Trusted Publishing flow (`cfe8eb8`). The PyPI project owner needs to configure or confirm the publisher for `vexyart/vexy-formi`, workflow `release.yml`, and environment `pypi`.
+
+### Verified backlog items
+
+- Safety thresholds and confirmation are covered by `tests/test_safety.py` (16 passed, `dcdca5c` and `f3cc632`).
+- Performance baselines and regression detection are covered by `tests/test_performance.py` (12 passed, `dcdca5c` and `f3cc632`).
+- File integrity, locks, and encoding are covered by `tests/test_file_validation.py` (26 passed, `dcdca5c`).
+- Tool execution retries transient errors and stops on permanent errors (`dcdca5c` and `f3cc632`). A device-busy error took three attempts and a syntax error took one.
+- Configuration inherits settings in system, user, project, and environment order (`dcdca5c`). A layered configuration check confirmed overrides and inherited defaults.
 
 ## [1.0.6] - 2024-09-09
 
