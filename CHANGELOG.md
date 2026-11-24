@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-- Site now uses the fly-january 0.1.1 theme (chrome: none)
+- Site now uses the fly-january 0.2.1 theme (chrome: none)
 - Fixed two stale test expectations for formatter availability and the `vfor tools` table.
 
 ## [1.0.6] - 2024-09-09

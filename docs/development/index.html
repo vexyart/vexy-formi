@@ -47,7 +47,7 @@
     
   <link rel="stylesheet" data-fly-photoswipe href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
       integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
-  <link rel="stylesheet" href="../assets/fly/fly.css?v=24c03d88bb">
+  <link rel="stylesheet" href="../assets/fly/fly.css?v=98850411df">
 
     
 
@@ -81,7 +81,7 @@
   <script>try{document.fonts.load('20px "Material Symbols Outlined"',"arrow_backarrow_forwarddark_modelight_mode").then(function(f){if(f.length)document.documentElement.classList.add("fly-msym")})}catch(e){}</script>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://p.typekit.net" crossorigin>
-  <link rel="stylesheet" href="https://use.typekit.net/cmv5add.css" data-fly-font>
+  <link rel="stylesheet" href="https://use.typekit.net/xht3uat.css" data-fly-font>
   <link rel="stylesheet" href="https://use.typekit.net/cna4jfp.css" data-fly-font>
   <link rel="stylesheet" href="https://use.typekit.net/wck5koo.css" data-fly-font>
 
@@ -932,7 +932,7 @@
 <h2 id="run-the-tests">Run the tests<a aria-label="Permanent link" class="headerlink" href="#run-the-tests" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>-o<span class="w"> </span><span class="nv">addopts</span><span class="o">=</span><span class="s2">""</span><span class="w"> </span>-n<span class="w"> </span>auto
 </code></pre></div>
-<p>The tests copy fixtures into temporary directories before processing them. Integration tests use the external tools installed on the machine.</p>
+<p>The tests copy the fixtures into temporary directories before processing them, so the repository is not modified. Some tests depend on which external tools are installed. On a machine with <code>biome</code>, <code>dprint</code>, <code>ruff</code>, <code>yq</code>, <code>black</code> and <code>jq</code> but no <code>esbuild</code>, two tests failed (<code>test_format_support</code>, <code>test_vfor_tools</code>) and 72 passed.</p>
 <h2 id="lint-and-format">Lint and format<a aria-label="Permanent link" class="headerlink" href="#lint-and-format" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uvx<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>src<span class="w"> </span>tests
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>uvx<span class="w"> </span>ruff<span class="w"> </span>format<span class="w"> </span>--respect-gitignore<span class="w"> </span>src<span class="w"> </span>tests
@@ -947,7 +947,7 @@
 </code></pre></div>
 <p>The source distribution contains the package, <code>tests/</code>, <code>README.md</code>, <code>CHANGELOG.md</code>, <code>LICENSE</code> and <code>pyproject.toml</code>. The wheel contains the package only.</p>
 <h2 id="documentation">Documentation<a aria-label="Permanent link" class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<p>Sources are in <code>src_docs/md/</code>, the configuration in <code>src_docs/mkdocs.yml</code>. The build script installs ProperDocs and fly-january 0.1.1 with <code>uvx</code>. The site uses unbranded chrome.</p>
+<p>Sources are in <code>src_docs/md/</code>, the configuration in <code>src_docs/mkdocs.yml</code>. The build script installs ProperDocs and fly-january 0.2.1 with <code>uvx</code>. The site uses unbranded chrome.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>src_docs/build.sh<span class="w">          </span><span class="c1"># strict build into docs/</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>src_docs/build.sh<span class="w"> </span>serve<span class="w">    </span><span class="c1"># live preview on http://127.0.0.1:8000</span>
 </code></pre></div>
