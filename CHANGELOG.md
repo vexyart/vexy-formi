@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- The documentation build now accepts fly-january 0.3.0 or later.
 - Site now uses the fly-january 0.2.1 theme (chrome: none)
 - Documented the existing PyPI Trusted Publishing flow (`cfe8eb8`). The PyPI project owner needs to configure or confirm the publisher for `vexyart/vexy-formi`, workflow `release.yml`, and environment `pypi`.
 
