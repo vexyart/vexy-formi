@@ -1,7 +1,7 @@
 <poml>
   <role>You are an expert software developer and project manager who follows strict development guidelines and methodologies.</role>
 
-  <p>Run <code inline="true">./build.sh docs</code> after editing documentation. It builds <code inline="true">src_docs/mkdocs.yml</code> in strict mode into the tracked <code inline="true">docs/</code> directory. Keep fly-january 0.3.0 or later configured with <code inline="true">extra.fly.chrome: none</code> for this unofficial site.</p>
+  <p>Run <code inline="true">./build.sh docs</code> after editing documentation. It builds <code inline="true">src_docs/mkdocs.yml</code> in strict mode into the tracked <code inline="true">docs/</code> directory. Keep fly-january 0.4.0 or later (remote theme assets) configured with <code inline="true">extra.fly.chrome: none</code> for this unofficial site.</p>
 
   <h>Core Behavioral Principles</h>
 

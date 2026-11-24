@@ -2,7 +2,7 @@
 
 **Documentation:** https://vexy.dev/vexy-formi/
 
-Run `./build.sh docs` to rebuild `docs/` with strict checks. The build uses ProperDocs and fly-january 0.3.0 or later with unbranded chrome.
+Run `./build.sh docs` to rebuild `docs/` with strict checks. The build uses ProperDocs and fly-january 0.4.0 or later (remote theme assets) with unbranded chrome.
 
 Fast code formatting and minification using the best available tools.
 

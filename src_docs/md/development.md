@@ -59,7 +59,7 @@ The source distribution contains the package, `tests/`, `README.md`, `CHANGELOG.
 
 ## Documentation
 
-Sources are in `src_docs/md/`, the configuration in `src_docs/mkdocs.yml`. The build script installs ProperDocs and fly-january 0.3.0 or later with `uvx`. The site uses unbranded chrome.
+Sources are in `src_docs/md/`, the configuration in `src_docs/mkdocs.yml`. The build script installs ProperDocs and fly-january 0.4.0 or later (remote theme assets) with `uvx`. The site uses unbranded chrome.
 
 ```bash
 src_docs/build.sh          # strict build into docs/
